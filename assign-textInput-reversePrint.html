@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+            .data {
+                
+                color:black;
+                font :bold;
+                text-align: center;
+                
+                 
+            }
+        </style>
+    </head>
+    <body>
+        <div id = 'root'>
+        </div>
+           
+            <script src="C:\Users\SHASHI NIRANJAN\jan-2020-mern\react\js\react.development.js"></script>
+            <script src="C:\Users\SHASHI NIRANJAN\jan-2020-mern\react\js\react-dom.development.js"></script>
+            <script src="C:\Users\SHASHI NIRANJAN\jan-2020-mern\react\js\babel.js"></script>
+
+            <script type="text/babel">
+                    
+            const rootHandle = document.getElementById('root')
+            
+            class TextData extends React.Component{
+                constructor(){
+                    super()
+                    this.state = {
+                        data : '',
+                        rev : ''
+                    }
+                }
+
+                handleInput = (e) => {
+
+                    const data =e.target.value
+                    this.setState(function(prevState){
+                        return{
+                            data,
+                            rev :data.split('').reverse().join('').toUpperCase()
+                        }
+                    })
+                }
+
+                render(){
+                    return(
+                        <div>
+                        <input type ='text' value = {this.state.data} onChange = {this.handleInput} />
+                        <h2 class="data">{this.state.rev}</h2>
+                        </div>
+                    )
+                }
+            }
+           const ele = (
+               <div>
+                    <TextData />
+               </div>
+           )
+            ReactDOM.render(ele, rootHandle)
+            
+          </script>
+    </body>
+</html>
